@@ -3,6 +3,14 @@ import axios from "axios";
 import { Card, CardContent } from "./components/ui/Card";
 import { Button } from "./components/ui/Button";
 
+const featureDescription = `
+Resistance (Ω): Min = 0.000986, Max = 0.002039 |
+Capacitance (F): Min = -0.004263, Max = -0.000535 |
+Magnitude (|Z|): Min = 0.001123, Max = 0.004726 |
+Phase (°): Min = 28.330987, Max = 64.435327 |
+Terminal Voltage (V): Min = 2.592178, Max = 3.394653
+`;
+
 export default function BatteryCapacityPredictor() {
   const [impedanceValues, setImpedanceValues] = useState(["", "", "", "", ""]);
   const [prediction, setPrediction] = useState(null);
@@ -32,7 +40,17 @@ export default function BatteryCapacityPredictor() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
       <Card className="w-full max-w-2xl p-8 shadow-xl bg-white rounded-2xl text-center">
         <CardContent>
-          <h1 className="text-3xl font-bold mb-8 text-blue-600">Battery Capacity Predictor</h1>
+          <h1 className="text-3xl font-bold mb-4 text-blue-600">Data-drivne SOC estimator based on EIS and terminal voltage</h1>
+          <p className="mb-6 text-gray-500"> This tool estimates battery capacity based on impedance parameters measured from the battery. </p>
+          <p className="mb-6 text-gray-500"> By entering key electrical properties, the model predicts the remaining capacity of the battery using a trained deep learning model.</p>
+          <p className="mb-6 text-blue-600"> Note: The impedance and terminal voltage entered here should be collected 1 hour after the interuption of the charging current.</p>
+          <p className="mb-6 text-gray-600">
+            This tool predicts battery capacity based on impedance parameters measured from the battery. 
+            The model takes the following features into account:
+          </p>
+          <p className="mb-6 text-gray-500 text-sm">
+            {featureDescription}
+          </p>
           <div className="grid grid-cols-1 gap-6">
             {impedanceValues.map((val, index) => (
               <div key={index} className="flex flex-col items-center">
