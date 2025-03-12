@@ -27,7 +27,7 @@ export default function BatteryCapacityPredictor() {
   const handleSubmit = async () => {
     try {
       setError(null);
-      const response = await axios.post("https://battery-capacity-cnn-2.onrender.com/predict", {
+      const response = await axios.post("https://battery-capacity-cnn-nomarlized-inputs.onrender.com/predict", {
         impedance_values: impedanceValues.map(Number),
       });
       setPrediction(response.data.predicted_capacity);
