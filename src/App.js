@@ -40,7 +40,7 @@ export default function BatteryCapacityPredictor() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
       <Card className="w-full max-w-2xl p-8 shadow-xl bg-white rounded-2xl text-center">
         <CardContent>
-          <h1 className="text-3xl font-bold mb-4 text-blue-600">Data-drivne SOC estimator based on EIS and terminal voltage</h1>
+          <h1 className="text-3xl font-bold mb-4 text-blue-600">Data-driven SOC estimator based on EIS and terminal voltage</h1>
           <p className="mb-6 text-gray-500"> This tool estimates battery capacity based on impedance parameters measured from the battery. </p>
           <p className="mb-6 text-gray-500"> By entering key electrical properties, the model predicts the remaining capacity of the battery using a trained deep learning model.</p>
           <p className="mb-6 text-blue-600"> Note: The impedance and terminal voltage entered here should be collected 1 hour after the interuption of the charging current.</p>
